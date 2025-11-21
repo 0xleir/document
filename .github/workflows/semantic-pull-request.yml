@@ -7,6 +7,10 @@ on:
       - edited
       - synchronize
 
+permissions:
+  pull-requests: read
+  contents: read
+
 jobs:
   main:
     if: github.repository == 'ranuts/document'
@@ -14,6 +18,6 @@ jobs:
     name: Semantic Pull Request
     steps:
       - name: Validate PR title
-        uses: amannn/action-semantic-pull-request@v5
+        uses: amannn/action-semantic-pull-request@v6
         env:
-          GITHUB_TOKEN: ${{ secrets.WEREAD_DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
